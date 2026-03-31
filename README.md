@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  Get an immersive, multi-agent learning experience in just one click
+  <strong>OpenCyx World</strong> blends the prompt-driven Open-world engine with the Cyx brand—running any domain you describe (product launches, onboarding labs, executive briefings) while optionally activating the Cyxworld persona layer.
 </p>
 
 <p align="center">
