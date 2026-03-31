@@ -1,6 +1,6 @@
 # OpenCyx World Usage
 
-This guide explains the three scripted scenarios we keep to demonstrate Open-world + Cyxworld without a live AI. Each section covers why the scenario matters, how we configure the prompts, and what you should expect after the run.
+This guide explains the four scripted scenarios we keep to demonstrate Open-world + Cyxworld without a live AI. Each section covers why the scenario matters, how we configure the prompts, and what you should expect after the run.
 
 ## 1. Product Launch Enablement
 
@@ -22,6 +22,13 @@ This guide explains the three scripted scenarios we keep to demonstrate Open-wor
 - **Setup:** Same demo script again injects the executive briefing prompts, logging both system and user prompts for the executive persona.  
 - **Open-world hooks:** The outline stage now produces “Strategic Summary → Impact Metrics → Decision Workshop,” while the scene prompts still rely on the shared schema (slides + interactive actions).  
 - **Outcome:** The script prints the metrics slide, decision tree interactive, and the JSON output you can use to validate open-world behavior before you swap in real AI.
+
+## 4. Interview Readiness Lab
+
+- **Why it exists:** Interview prep is demanding—this scenario shows how OpenCyx World can simulate coaching sessions with stock questions, role-play guidance, and feedback loops.  
+- **Setup:** The same script injects the Interview Readiness prompts, logging the system/user prompts that describe “Interview Mission → Mock Questions → Feedback & Next Steps.”  
+- **Open-world hooks:** The prompts emphasize “mission,” “mock questions,” and “feedback rubrics,” while the narrative cards still rely on the same slide/interactive templates plus Cyxworld sentiments.  
+- **Outcome:** You get JSON output containing the mission slide, interactive question flow, and feedback slide with quiz, which proves the engine can center on coaching/interview prep before you wire in real AI responses.
 
 ## Test & verification commands
 

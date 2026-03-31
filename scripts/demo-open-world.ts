@@ -173,6 +173,54 @@ const scenarios: Scenario[] = [
       },
     ],
   },
+  {
+    name: 'Interview Readiness Lab',
+    requirements: {
+      requirement:
+        'Design an interview readiness lab for senior product managers, including mock questions, behavioral scenarios, and immediate feedback guidance.',
+      language: 'en-US',
+      userNickname: 'Taylor',
+      userBio: 'Product Recruiter at Signal Path',
+    },
+    sampleOutlines: [
+      {
+        id: 'scene_overview',
+        type: 'slide',
+        title: 'Interview Mission',
+        description: 'Frame the goal, desired competencies, and success criteria.',
+        keyPoints: ['Role summary', 'Focus competencies (strategy, communication)', 'What success looks like'],
+        order: 1,
+      },
+      {
+        id: 'scene_questions',
+        type: 'interactive',
+        title: 'Mock Questions',
+        description: 'Walk through candidate responses with coaching annotations.',
+        keyPoints: ['Behavioral prompts', 'Product case warm-up', 'Follow-up probes'],
+        order: 2,
+        interactiveConfig: {
+          conceptName: 'Response Flow',
+          conceptOverview: 'Simulated interview where each question can expand to best-practice notes.',
+          designIdea:
+            'Render cards with questions on the left and replaceable response guidance on the right, plus coach tips per question.',
+          subject: 'Interview Coaching',
+        },
+      },
+      {
+        id: 'scene_feedback',
+        type: 'slide',
+        title: 'Feedback & Next Steps',
+        description: 'Summarize scoring rubrics and recommended follow-ups.',
+        keyPoints: ['Scorecard categories', 'Immediate practice suggestions', 'Reflection prompts'],
+        order: 3,
+        quizConfig: {
+          questionCount: 1,
+          difficulty: 'medium',
+          questionTypes: ['short_answer'],
+        },
+      },
+    ],
+  },
 ];
 
 function createAiCall(sampleOutlines: unknown) {
