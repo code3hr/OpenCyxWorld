@@ -1,28 +1,37 @@
 # OpenCyx World Usage
 
-## 1. Demo scenarios
+This guide explains the three scripted scenarios we keep to demonstrate Open-world + Cyxworld without a live AI. Each section covers why the scenario matters, how we configure the prompts, and what you should expect after the run.
 
-This repo ships `scripts/demo-open-world.ts` to show how OpenCyx World (Open-world + Cyxworld mode) works without a live AI:
+## 1. Product Launch Enablement
 
-1. Run `cmd /c "set PATH=%PNPM_HOME%;%PATH% && pnpm dlx tsx --tsconfig tsconfig.json scripts/demo-open-world.ts"`.  
-2. The script iterates through three pre-baked scenarios: **Product Launch Enablement**, **Customer Onboarding Lab**, and **Executive Briefing**.  
-3. Each run logs the system & user prompts injected into the pipeline and returns structured outlines (slides, interactive configs, quiz/PBL entries) so you can inspect the JSON output.
-4. Swap the stubbed `aiCall` with a real provider once API keys are configured and rerun to capture live responses.
+- **Why it exists:** Showcasing an enterprise-ready briefing proves that OpenCyx World can turn a product story into narrated scenes, demos, and actions.  
+- **Setup:** Run `pnpm dlx tsx --tsconfig tsconfig.json scripts/demo-open-world.ts`. The script feeds the Product Launch Enablement prompts (outline stage plus slide content) into the pipeline while logging the injected system/user prompts for transparency.  
+- **Open-world hooks:** The outline prompt treats the scenario as “Outcome Narrative → Demo Walkthrough → Post-launch Actions.” The scene prompts and agents are already using the persona-neutral frames you defined (experience lead + assistant); no classroom language remains.  
+- **Outcome:** You get JSON output with a vision slide, an interactive demo checklist, and a transcribed action slide with a quiz, proving the runtime can narrate a launch without touching the UI layer.
 
-## 2. Tests & verification
+## 2. Customer Onboarding Lab
 
-- `pnpm test` – runs `vitest run` (77 tests across five spec files).  
-- `pnpm lint` – executes `eslint` across the workspace.  
-- `pnpm test:e2e` – (optional) launches Playwright when browsers are available.  
-- After installing dependencies, verify the demo script still logs both scenarios so documentation matches reality.
+- **Why it exists:** This scenario proves the engine can double as an onboarding workshop—checklists, walkthroughs, and cadences are all represented as scenes.  
+- **Setup:** Same command as above reruns the script; it now injects the onboarding prompts with guided walkthrough and PBL mission instructions.  
+- **Open-world hooks:** Prompts mention “launch checklist,” “guided walkthrough,” and “cadence playbook” instead of “class,” while the agent personas remain the enterprise voices you tuned in the registry.  
+- **Outcome:** The run logs structured interactive configs and the PBL mission, showing you can reuse the action templates for practical enablement labs.
 
-## 3. Sample run summary
+## 3. Executive Briefing
 
-- The `scripts/demo-open-world.ts` script is the “sample test” you can run without AI. It logs the OpenCyx prompts for Product Launch Enablement and Customer Onboarding Lab and returns canned outlines that mimic a full generation cycle.  
-- You’ve already run the scripted flow (see the logs in your terminal), so the only remaining step before real AI is wiring the provider call. No live API requests are made today.
+- **Why it exists:** Executive audiences expect high-level narratives and decision workshops. This scenario demonstrates how OpenCyx World can model board-ready content with minimal prompt changes.  
+- **Setup:** Same demo script again injects the executive briefing prompts, logging both system and user prompts for the executive persona.  
+- **Open-world hooks:** The outline stage now produces “Strategic Summary → Impact Metrics → Decision Workshop,” while the scene prompts still rely on the shared schema (slides + interactive actions).  
+- **Outcome:** The script prints the metrics slide, decision tree interactive, and the JSON output you can use to validate open-world behavior before you swap in real AI.
 
-## 3. Workflow tips
+## Test & verification commands
 
-- Keep `community/open-world.md` handy as the definitive guide for retargeting prompts and personas.  
-- Update `README.md` summary sections if you add more scenarios or rename the Cyxworld flavor.  
-- Commit demos + JSON samples whenever you refresh the prompts so others can see how the flow changes.  
+- `pnpm test` – Vitest suite (77 tests across five spec files).  
+- `pnpm lint` – ESLint.  
+- `pnpm test:e2e` – Playwright (requires browsers).  
+- `cmd /c "set PATH=%PNPM_HOME%;%PATH% && pnpm dlx tsx --tsconfig tsconfig.json scripts/demo-open-world.ts"` – runs the scripted scenarios above. No live AI calls are made; the stubbed `aiCall` prints the outlines you see in this guide.
+
+## Next steps
+
+1. Replace the stubbed `aiCall` inside `scripts/demo-open-world.ts` with your provider of choice once API keys are configured.  
+2. Capture the real AI outputs (JSON + logs) and store them alongside this file for future comparisons.  
+3. Update the README/guide to include any new branded scenario names or persona sets you add under the OpenCyx World umbrella.

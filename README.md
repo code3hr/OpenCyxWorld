@@ -169,6 +169,8 @@ To demonstrate the new mode, run `scripts/demo-open-world.ts` via `pnpm dlx tsx 
 
 For a quick reference to the demo/test workflow, see [`USAGE.md`](USAGE.md) which summarizes the scenarios, commands, and verification steps.
 
+You can now point newcomers at `USAGE.md` for the vivid scenario breakdowns and recorded outcomes before they hook up real AI keys.
+
 ### Tests
 
 - `pnpm test` (runs `vitest run` from the workspace). The suite currently executes five spec files (77 tests total) and passed successfully after installing dependencies.
