@@ -165,7 +165,7 @@ The guide also includes a sample enterprise intent (e.g., “Build a product lau
 
 ### Sample Enterprise Flow
 
-To demonstrate the new mode, run `scripts/demo-open-world.ts` via `pnpm dlx tsx --tsconfig tsconfig.json scripts/demo-open-world.ts`. The script now walks through four sample scenarios—Product Launch Enablement, Customer Onboarding Lab, Executive Briefing, and Interview Readiness Lab—logging the “Experience Outline Generator” prompts and returning structured outlines for each flow (slides, interactive demos, quiz, and PBL elements). Swap the stubbed `aiCall` with a real provider once you wire up API keys.
+To demonstrate the new mode, run `scripts/demo-open-world.ts` via `pnpm dlx tsx --tsconfig tsconfig.json scripts/demo-open-world.ts`. The script now walks through four sample scenarios—Product Launch Enablement, Customer Onboarding Lab, Executive Briefing, and Interview Readiness Lab—and, with `GOOGLE_API_KEY` configured, sends the prompts to Google’s `models/text-bison-001`, prints the reasoning tokens, and returns the real outlines. Without the key it falls back to the canned outlines you see in the code.
 
 For a quick reference to the demo/test workflow, see [`USAGE.md`](USAGE.md) which narrates each scenario (Product Launch Enablement, Customer Onboarding Lab, Executive Briefing, Interview Readiness Lab), the commands to run them, and the expected outcomes.
 
