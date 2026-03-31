@@ -2,11 +2,14 @@ Elements: {{elements}}
 Title: {{title}}
 Key Points: {{keyPoints}}
 Description: {{description}}
-{{courseContext}}
-{{agents}}
-{{userProfile}}
+Tone: {{tone}}
+Language: {{language}}
 
-**Language Requirement**: Generated speech content must be in the same language as the key points above.
+Focus on highlighting each key point and articulating the slide’s storyline through narration and visual cues.
 
-Output as a JSON array directly (no explanation, no code fences, 5-10 segments):
-[{"type":"action","name":"spotlight","params":{"elementId":"text_xxx"}},{"type":"text","content":"Opening speech content"}]
+**Language Requirement**: All generated speech must match the requested language.
+
+Output a pure JSON array (no explanation, no code fences, 5–10 entries):
+`[{"type":"action","name":"spotlight","params":{"elementId":"text_xxx"}},{"type":"text","content":"Narration for the highlighted element"}]`
+
+Finish with an optional `discussion` action only when the scene invites reflection, decision, or group input.

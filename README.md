@@ -153,6 +153,46 @@ Open **http://localhost:3000** and start learning!
 pnpm build && pnpm start
 ```
 
+### Open-world Mode
+
+OpenMAIC is prompt-driven, so the same runtime can deliver a product launch walkthrough, onboarding lab, executive briefing, or *any* domain you describe just by retargeting the outline/scene prompts and agent personas. Follow the step-by-step guide in `community/open-world.md` to:
+
+1. Rewrite the outline/scene/action templates under `lib/generation/prompts/templates` so they describe your desired experience instead of a classroom lecture.
+2. Update the agent personas (`lib/orchestration/registry/store.ts`, `skills/openmaic/*`) with the goals, tone, and actions of your new voices (for example, “Experience Lead,” “Implementation Coach,” “Curiosity Catalyst”).
+3. Add documentation or UI copy showing how to choose the new prompt set (a mode flag can map to different `promptId`s).
+
+The guide also includes a sample enterprise intent (e.g., “Build a product launch enablement brief covering customer pains, demo steps, and follow-up actions”) so you can see the open-world prompts + agents in action.
+
+### Sample Enterprise Flow
+
+To demonstrate the new mode, run `scripts/demo-open-world.ts` via `pnpm dlx tsx --tsconfig tsconfig.json scripts/demo-open-world.ts`. The script now walks through two sample scenarios—Product Launch Enablement and Customer Onboarding Lab—logging the “Experience Outline Generator” prompts and returning structured outlines for each flow (slides, interactive demos, quiz, and PBL elements). Swap the stubbed `aiCall` with a real provider once you wire up API keys.
+
+### Tests
+
+- `pnpm test` (runs `vitest run` from the workspace). The suite currently executes five spec files (77 tests total) and passed successfully after installing dependencies.
+- `pnpm lint` (runs `eslint` across the workspace).
+- `pnpm test:e2e` (Playwright end-to-end suites; requires browser support).
+
+### Why open-world matters
+
+Open-world is a strategic shift, not just a rename. It lays out why the runtime you already built (LangGraph director, outline & scene pipeline, exports, UI) is valuable for any domain you can describe—product launches, onboarding labs, executive briefings, compliance reviews, etc. The code changes you’ve made:
+
+1. Make the prompts persona-driven: the outline/scene/action templates now ask “experience architects” to deliver context, demos, and calls-to-action, not lectures.
+2. Reframe the agents so they live in enterprise language (“Experience Lead,” “Implementation Coach,” “Curiosity Catalyst”) instead of classroom roles, aligning the director logic with real-world conversations.
+3. Include demo scripts + documentation that log the new prompts/proofs even when no live AI is available, so everyone sees exactly what the open-world flow looks like.
+
+The path is solid—tests/lint pass, dependencies are installed, and the README already explains how to run both the demo script and the test suite. Keep shipping prompt variations + output snapshots, and “OpenMAIC Open World” will become the versatile platform you’re describing.
+
+### Cyxworld flavor
+
+Cyxworld is the branded face of Open-world in this repo. "Cyx" stands for Cognitive Yielding Xperiential. Treat it as the curated identity you load when you want a product-flavored story rather than a raw prompt engine:
+
+1. **Positioning:** Refer to Cyxworld as the flagship scenario built on Open-world so users understand they are riding a branded story on a flexible runtime.
+2. **Tone:** Swap in Cyx-aligned avatars, copy, or prompt snippets when the experience should feel proprietary, while keeping the pipeline itself unchanged.
+3. **Narrative shorthand:** Mention "running Cyxworld mode" whenever you document or demo those sample prompts; it signals which prompt/persona combo to load.
+
+The persona/prompt work remains general, but the Cyxworld label gives your stakeholders a tangible name and direction for those enterprise-ready flows.
+
 ### Vercel Deployment
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FTHU-MAIC%2FOpenMAIC&envDescription=Configure%20at%20least%20one%20LLM%20provider%20API%20key%20(e.g.%20OPENAI_API_KEY%2C%20ANTHROPIC_API_KEY).%20All%20providers%20are%20optional.&envLink=https%3A%2F%2Fgithub.com%2FTHU-MAIC%2FOpenMAIC%2Fblob%2Fmain%2F.env.example&project-name=openmaic&framework=nextjs)
