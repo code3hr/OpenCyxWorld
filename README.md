@@ -167,6 +167,8 @@ The guide also includes a sample enterprise intent (e.g., “Build a product lau
 
 To demonstrate the new mode, run `scripts/demo-open-world.ts` via `pnpm dlx tsx --tsconfig tsconfig.json scripts/demo-open-world.ts`. The script now walks through two sample scenarios—Product Launch Enablement and Customer Onboarding Lab—logging the “Experience Outline Generator” prompts and returning structured outlines for each flow (slides, interactive demos, quiz, and PBL elements). Swap the stubbed `aiCall` with a real provider once you wire up API keys.
 
+For a quick reference to the demo/test workflow, see [`USAGE.md`](USAGE.md) which summarizes the scenarios, commands, and verification steps.
+
 ### Tests
 
 - `pnpm test` (runs `vitest run` from the workspace). The suite currently executes five spec files (77 tests total) and passed successfully after installing dependencies.
