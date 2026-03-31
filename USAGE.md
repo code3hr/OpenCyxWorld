@@ -16,6 +16,11 @@ This repo ships `scripts/demo-open-world.ts` to show how OpenCyx World (Open-wor
 - `pnpm test:e2e` – (optional) launches Playwright when browsers are available.  
 - After installing dependencies, verify the demo script still logs both scenarios so documentation matches reality.
 
+## 3. Sample run summary
+
+- The `scripts/demo-open-world.ts` script is the “sample test” you can run without AI. It logs the OpenCyx prompts for Product Launch Enablement and Customer Onboarding Lab and returns canned outlines that mimic a full generation cycle.  
+- You’ve already run the scripted flow (see the logs in your terminal), so the only remaining step before real AI is wiring the provider call. No live API requests are made today.
+
 ## 3. Workflow tips
 
 - Keep `community/open-world.md` handy as the definitive guide for retargeting prompts and personas.  
