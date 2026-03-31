@@ -5,7 +5,7 @@
 This repo ships `scripts/demo-open-world.ts` to show how OpenCyx World (Open-world + Cyxworld mode) works without a live AI:
 
 1. Run `cmd /c "set PATH=%PNPM_HOME%;%PATH% && pnpm dlx tsx --tsconfig tsconfig.json scripts/demo-open-world.ts"`.  
-2. The script iterates through two pre-baked scenarios: **Product Launch Enablement** and **Customer Onboarding Lab**.  
+2. The script iterates through three pre-baked scenarios: **Product Launch Enablement**, **Customer Onboarding Lab**, and **Executive Briefing**.  
 3. Each run logs the system & user prompts injected into the pipeline and returns structured outlines (slides, interactive configs, quiz/PBL entries) so you can inspect the JSON output.
 4. Swap the stubbed `aiCall` with a real provider once API keys are configured and rerun to capture live responses.
 

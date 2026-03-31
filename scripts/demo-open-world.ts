@@ -124,6 +124,55 @@ const scenarios: Scenario[] = [
       },
     ],
   },
+  {
+    name: 'Executive Briefing',
+    requirements: {
+      requirement:
+        'Prepare an executive briefing that summarizes the AI roadmap, performance metrics, risks, and next decisions for the board.',
+      language: 'en-US',
+      userNickname: 'Morgan',
+      userBio: 'VP of Strategy, Forward Systems',
+    },
+    sampleOutlines: [
+      {
+        id: 'scene_summary',
+        type: 'slide',
+        title: 'Strategic Summary',
+        description: 'High-level narrative covering roadmap pillars, success signals, and key asks.',
+        keyPoints: [
+          'Roadmap pillars: automation, insights, trustworthiness',
+          'Pilot wins + customer validation',
+          'Request: approve next-phase investment and KPIs',
+        ],
+        order: 1,
+      },
+      {
+        id: 'scene_metrics',
+        type: 'slide',
+        title: 'Impact Metrics',
+        description: 'KPIs, cost savings, and adoption targets tied to the briefing.',
+        keyPoints: ['Projected ROI', 'Retention lift', 'Mitigations for top 3 risks'],
+        order: 2,
+        suggestedImageIds: ['img_metrics'],
+      },
+      {
+        id: 'scene_decision',
+        type: 'interactive',
+        title: 'Decision Workshop',
+        description: 'Interactive decision tree showing trade-offs for each board option.',
+        keyPoints: ['Approve investment', 'Delay pilot', 'Re-scope deliverables'],
+        order: 3,
+        interactiveConfig: {
+          conceptName: 'Decision Tree',
+          conceptOverview:
+            'Model the outcomes of each decision path with annotations on value, risk, and next steps.',
+          designIdea:
+            'Render a horizontal tree with buttons that expand to show quantitative impact, risk, and follow-ups.',
+          subject: 'Strategic Decision',
+        },
+      },
+    ],
+  },
 ];
 
 function createAiCall(sampleOutlines: unknown) {
