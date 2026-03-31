@@ -35,7 +35,7 @@ This guide explains the four scripted scenarios we keep to demonstrate Open-worl
 - `pnpm test` – Vitest suite (77 tests across five spec files).  
 - `pnpm lint` – ESLint.  
 - `pnpm test:e2e` – Playwright (requires browsers).  
-- `cmd /c "set PATH=%PNPM_HOME%;%PATH% && pnpm dlx tsx --tsconfig tsconfig.json scripts/demo-open-world.ts"` – runs the scripted scenarios above. No live AI calls are made; the stubbed `aiCall` prints the outlines you see in this guide.
+- `cmd /c "set PATH=%PNPM_HOME%;%PATH% && pnpm dlx tsx --tsconfig tsconfig.json scripts/demo-open-world.ts"` – runs the scripted scenarios above. With `GOOGLE_API_KEY` set, it now sends those prompts to `models/text-bison-001`, logs the reasoning tokens, and prints the JSON response; without the key it falls back to the canned outlines described per scenario.
 
 ## Next steps
 

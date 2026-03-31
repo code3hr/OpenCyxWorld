@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { generateSceneOutlinesFromRequirements } from '@/lib/generation/outline-generator';
 import type { UserRequirements } from '@/lib/types/generation';
 
@@ -6,6 +7,10 @@ type Scenario = {
   requirements: UserRequirements;
   sampleOutlines: unknown;
 };
+
+const GOOGLE_MODEL = process.env.GOOGLE_MODEL ?? 'models/text-bison-001';
+const GOOGLE_KEY = process.env.GOOGLE_API_KEY;
+if (!GOOGLE_KEY) throw new Error('Missing GOOGLE_API_KEY in environment');
 
 const scenarios: Scenario[] = [
   {
@@ -223,13 +228,53 @@ const scenarios: Scenario[] = [
   },
 ];
 
+async function callGoogle(promptText: string): Promise<string> {
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/${GOOGLE_MODEL}:generateText?key=${GOOGLE_KEY}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        prompt: {
+          text: promptText,
+        },
+        temperature: 0.4,
+        candidateCount: 1,
+      }),
+    },
+  );
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`Google GenAI error: ${error}`);
+  }
+
+  const json = await response.json();
+  const output = json.candidates?.[0]?.output;
+  const reasoningTokens = json.usage?.reasoningTokens;
+  if (reasoningTokens != null) {
+    console.log('Reasoning tokens:', reasoningTokens);
+  }
+
+  if (!output) throw new Error('No output from Google model');
+  return output;
+}
+
 function createAiCall(sampleOutlines: unknown) {
-  return async (_system: string, _user: string) => {
+  return async (system: string, user: string) => {
     console.log('---SYSTEM PROMPT---');
-    console.log(_system);
+    console.log(system);
     console.log('---USER PROMPT---');
-    console.log(_user);
-    return JSON.stringify(sampleOutlines, null, 2);
+    console.log(user);
+
+    const promptText = `System:\n${system}\n\nUser:\n${user}`;
+    try {
+      const text = await callGoogle(promptText);
+      return text;
+    } catch (error) {
+      console.error('Google call failed, using sample outlines', error);
+      return JSON.stringify(sampleOutlines, null, 2);
+    }
   };
 }
 
