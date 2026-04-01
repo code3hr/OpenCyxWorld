@@ -236,7 +236,6 @@ If you want multiple flavors (classroom vs. enterprise):
 | `USAGE.md` | Documented scenarios and how to add your own |
 | `community/open-world.md` | This guide |
 | `README.md` | Added "What is OpenCyxWorld?" section |
-| `CLAUDE.md` | Added Claude Code guidance |
 
 ### Demo Script Architecture
 

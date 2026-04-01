@@ -80,7 +80,6 @@ One prompt. Full interactive experience. Any domain.
 |-------|-------------|
 | [USAGE.md](USAGE.md) | Demo scenarios, how to add your own, step-by-step instructions |
 | [community/open-world.md](community/open-world.md) | Architecture overview, file structure, customization guide |
-| [CLAUDE.md](CLAUDE.md) | Guidance for Claude Code when working in this repo |
 
 ---
 
