@@ -4,6 +4,8 @@ This guide explains the four scripted scenarios we keep to demonstrate Open-worl
 
 ## Quick Start
 
+### Demo Script (Gemini only)
+
 Run all four demo scenarios with a single command:
 
 ```bash
@@ -11,6 +13,21 @@ pnpm demo
 ```
 
 This requires `GOOGLE_API_KEY` in your `.env.local` file. The script uses `gemini-2.5-flash` via the Gemini API and prints token usage for each scenario.
+
+### Web App (Any Provider)
+
+The web UI at http://localhost:3000 works with **any configured provider**:
+
+| Provider | Env Variable |
+|----------|--------------|
+| OpenAI | `OPENAI_API_KEY` |
+| Anthropic | `ANTHROPIC_API_KEY` |
+| Google Gemini | `GOOGLE_API_KEY` |
+| DeepSeek | `DEEPSEEK_API_KEY` |
+| MiniMax | `MINIMAX_API_KEY` |
+| Grok (xAI) | `GROK_API_KEY` |
+
+Configure at least one provider in `.env.local`, then run `pnpm dev`.
 
 ## 1. Product Launch Enablement
 
