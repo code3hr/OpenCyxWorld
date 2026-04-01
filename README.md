@@ -35,6 +35,38 @@
   <a href="https://open.maic.chat/">Live Demo</a> · <a href="#-quick-start">Quick Start</a> · <a href="#-features">Features</a> · <a href="#-use-cases">Use Cases</a> · <a href="#-openclaw-integration">OpenClaw</a>
 </p>
 
+---
+
+## 🌍 What is OpenCyxWorld?
+
+**OpenCyxWorld** is a fork of OpenMAIC that transforms any prompt into an interactive, multi-agent experience — not just classrooms.
+
+### The Problem
+
+Traditional content creation tools force you to build slides, quizzes, and training materials manually. AI tools help write content, but you still assemble everything yourself.
+
+### The Solution
+
+Describe what you want in plain language. OpenCyxWorld generates a complete interactive experience with:
+
+- **Slides** with AI narration and whiteboard animations
+- **Quizzes** with real-time grading and feedback
+- **Interactive simulations** (HTML-based demos, comparisons, workflows)
+- **Project-based activities** with roles, steps, and deliverables
+
+### Who It's For
+
+| Use Case | Example Prompt |
+|----------|----------------|
+| **Sales Enablement** | "Create a product launch briefing with demo checklist" |
+| **Customer Success** | "Design an onboarding lab for new analytics users" |
+| **Executive Communication** | "Prepare a board presentation on Q1 results" |
+| **Training & Learning** | "Teach me Python basics in 30 minutes" |
+| **Interview Prep** | "Help me prepare for a PM interview with mock questions" |
+
+One prompt. Full interactive experience. Any domain.
+
+---
 
 ## 🗞️ News
 
