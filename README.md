@@ -54,6 +54,10 @@ Describe what you want in plain language. OpenCyxWorld generates a complete inte
 - **Interactive simulations** (HTML-based demos, comparisons, workflows)
 - **Project-based activities** with roles, steps, and deliverables
 
+<p align="center">
+  <img src="assets/cyxworld.png" alt="OpenCyxWorld Web UI" width="680"/>
+</p>
+
 ### Who It's For
 
 | Use Case | Example Prompt |
@@ -65,6 +69,10 @@ Describe what you want in plain language. OpenCyxWorld generates a complete inte
 | **Interview Prep** | "Help me prepare for a PM interview with mock questions" |
 
 One prompt. Full interactive experience. Any domain.
+
+<p align="center">
+  <img src="assets/demo.png" alt="Demo Script Output" width="680"/>
+</p>
 
 ---
 
