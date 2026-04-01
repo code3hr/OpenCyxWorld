@@ -74,6 +74,14 @@ One prompt. Full interactive experience. Any domain.
   <img src="assets/demo.png" alt="Demo Script Output" width="680"/>
 </p>
 
+### Documentation
+
+| Guide | Description |
+|-------|-------------|
+| [USAGE.md](USAGE.md) | Demo scenarios, how to add your own, step-by-step instructions |
+| [community/open-world.md](community/open-world.md) | Architecture overview, file structure, customization guide |
+| [CLAUDE.md](CLAUDE.md) | Guidance for Claude Code when working in this repo |
+
 ---
 
 ## 🗞️ News
