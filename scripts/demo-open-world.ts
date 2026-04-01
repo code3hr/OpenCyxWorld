@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import { generateSceneOutlinesFromRequirements } from '@/lib/generation/outline-generator';
 import type { UserRequirements } from '@/lib/types/generation';
 
@@ -8,7 +7,7 @@ type Scenario = {
   sampleOutlines: unknown;
 };
 
-const GOOGLE_MODEL = process.env.GOOGLE_MODEL ?? 'models/text-bison-001';
+const GOOGLE_MODEL = process.env.GOOGLE_MODEL ?? 'gemini-2.5-flash';
 const GOOGLE_KEY = process.env.GOOGLE_API_KEY;
 if (!GOOGLE_KEY) throw new Error('Missing GOOGLE_API_KEY in environment');
 
@@ -230,16 +229,16 @@ const scenarios: Scenario[] = [
 
 async function callGoogle(promptText: string): Promise<string> {
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/${GOOGLE_MODEL}:generateText?key=${GOOGLE_KEY}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/${GOOGLE_MODEL}:generateContent?key=${GOOGLE_KEY}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        prompt: {
-          text: promptText,
+        contents: [{ parts: [{ text: promptText }] }],
+        generationConfig: {
+          temperature: 0.4,
+          candidateCount: 1,
         },
-        temperature: 0.4,
-        candidateCount: 1,
       }),
     },
   );
@@ -250,10 +249,10 @@ async function callGoogle(promptText: string): Promise<string> {
   }
 
   const json = await response.json();
-  const output = json.candidates?.[0]?.output;
-  const reasoningTokens = json.usage?.reasoningTokens;
-  if (reasoningTokens != null) {
-    console.log('Reasoning tokens:', reasoningTokens);
+  const output = json.candidates?.[0]?.content?.parts?.[0]?.text;
+  const usageMetadata = json.usageMetadata;
+  if (usageMetadata) {
+    console.log('Token usage:', usageMetadata);
   }
 
   if (!output) throw new Error('No output from Google model');
